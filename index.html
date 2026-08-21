@@ -121,6 +121,17 @@
     font-size:1.4rem;color:var(--cream);opacity:.85;
   }
 
+  /* philosophy — the signature belief statement, right after the hero */
+  .philosophy{text-align:center;}
+  .philosophy .eyebrow{color:var(--gold);}
+  .philosophy .equation{
+    font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;line-height:1.35;
+    color:var(--violet-dark);max-width:560px;margin:6px auto 26px;padding:18px 10px;
+    border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  }
+  .philosophy p.lead{color:var(--text-dim-dark);max-width:640px;margin:0 auto;font-size:1.02rem;}
+  .philosophy .dedication{color:var(--text-dim-dark);font-size:.88rem;font-style:italic;max-width:600px;margin:18px auto 0;}
+
   /* story — Peace: calm cream ground, violet used for emphasis */
   .story blockquote{
     margin:0;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:400;
@@ -138,11 +149,12 @@
     border-radius:14px;padding:26px 22px;
   }
   .pillar-card.power{--accent:var(--violet-mid);}
-  .pillar-card.prosperity{--accent:var(--gold);}
+  .pillar-card.light{--accent:var(--gold);}
   .pillar-card.love{--accent:var(--rose);}
   .pillar-num{color:var(--accent, var(--violet-mid));font-family:'Fraunces',serif;font-size:.85rem;margin-bottom:10px;font-weight:600;}
   .pillar-card h3{font-size:1.15rem;margin-bottom:10px;color:var(--text-dark);}
   .pillar-card p{color:var(--text-dim-dark);font-size:.92rem;margin:0;}
+  .pillars p.lead{color:var(--text-dim-dark);max-width:620px;margin:0 0 4px;}
 
   /* offerings */
   #offer .eyebrow{color:var(--gold);}
@@ -171,6 +183,54 @@
     max-width:520px;margin:30px auto 0;background:rgba(255,255,255,.4);
   }
   .testimonial-placeholder .quote-mark{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--rose);line-height:1;}
+  .testimonial-carousel-wrap{position:relative;margin-top:36px;}
+  .testimonial-carousel-wrap::before,.testimonial-carousel-wrap::after{
+    content:"";position:absolute;top:0;bottom:14px;width:44px;pointer-events:none;z-index:1;
+  }
+  .testimonial-carousel-wrap::before{left:0;background:linear-gradient(90deg,var(--rose-soft),transparent);}
+  .testimonial-carousel-wrap::after{right:0;background:linear-gradient(270deg,var(--rose-soft),transparent);}
+  .testimonial-carousel{
+    display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:4px 4px 16px;text-align:left;
+    scrollbar-width:thin;scrollbar-color:var(--rose-gold) transparent;
+  }
+  .testimonial-carousel::-webkit-scrollbar{height:6px;}
+  .testimonial-carousel::-webkit-scrollbar-track{background:transparent;}
+  .testimonial-carousel::-webkit-scrollbar-thumb{background:var(--rose-gold);border-radius:10px;}
+  .testimonial-card{
+    scroll-snap-align:start;flex:0 0 min(340px,82vw);height:360px;
+    display:flex;flex-direction:column;background:#fff;
+    border:1px solid rgba(201,82,122,.25);border-radius:16px;padding:26px 22px;
+    box-shadow:0 8px 24px rgba(91,58,142,.08);
+  }
+  .testimonial-card .quote-mark{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--rose);line-height:1;margin-bottom:8px;flex-shrink:0;}
+  .testimonial-card .quote{
+    color:var(--text-dark);font-size:.92rem;margin:0 0 16px;
+    overflow-y:auto;flex-grow:1;padding-right:6px;
+  }
+  .testimonial-card .quote::-webkit-scrollbar{width:5px;}
+  .testimonial-card .quote::-webkit-scrollbar-track{background:transparent;}
+  .testimonial-card .quote::-webkit-scrollbar-thumb{background:rgba(201,82,122,.3);border-radius:10px;}
+  .testimonial-person{
+    flex-shrink:0;display:flex;align-items:center;gap:12px;
+    padding-top:14px;border-top:1px solid rgba(201,82,122,.15);
+  }
+  .t-avatar{
+    width:38px;height:38px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(150deg,var(--rose-gold),var(--rose));color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:700;font-size:.82rem;
+  }
+  .t-name{font-weight:600;font-size:.9rem;color:var(--text-dark);}
+  .carousel-nav{display:flex;justify-content:center;gap:14px;margin-top:10px;}
+  .carousel-btn{
+    width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--rose);color:#fff;font-size:1.15rem;line-height:1;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(201,82,122,.28);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .carousel-btn:hover{background:var(--rose-gold);transform:translateY(-2px);}
 
   /* contact — bookends back into Power/Spirituality, closing the circle */
   .contact{
@@ -217,6 +277,22 @@
 
 <div class="dawn" aria-hidden="true"></div>
 
+<section class="philosophy">
+  <div class="wrap">
+    <div class="eyebrow">The Belief Behind This Work</div>
+    <p class="equation">Performance = Potential − Interference</p>
+    <p class="lead">We are blessed with infinite potential — every one of us a child of God. What keeps us from
+    performing at our best isn't a lack of ability, it's interference. Through the Morning Blessing &amp;
+    Meditation session and the practices around it, we work to remove that interference and bring the spark
+    back — helping people realize the potential they already carry, and find their path in spirituality,
+    entrepreneurship, and leadership.</p>
+    <p class="dedication">I'm deeply grateful and humbled by the teachings of my spiritual teacher, Master Choa
+    Kok Sui — founder of the World Pranic Healing Foundation, whose guidance has touched lakhs of lives. As one
+    of his disciples, this practice is my way of sharing what his teaching has given me, in service of many
+    people like me.</p>
+  </div>
+</section>
+
 <section class="story" id="story">
   <div class="wrap">
     <div class="eyebrow">My Story</div>
@@ -238,23 +314,25 @@
   <div class="wrap">
     <div class="eyebrow">What I Teach</div>
     <h2>Three Pillars</h2>
+    <p class="lead">Love, Light, and Power — the three aspects of the Divine — showing up in the world as
+    spirituality, entrepreneurship, and leadership.</p>
     <div class="pillar-grid">
-      <div class="pillar-card power">
-        <div class="pillar-num">01 · Power</div>
+      <div class="pillar-card love">
+        <div class="pillar-num">01 · Love</div>
         <h3>Spirituality — The Inner Foundation</h3>
         <p>Before you can lead others or build anything lasting, you have to find stillness within. Rooted in the
         teachings of Master Choa Kok Sui, I help you build inner clarity, emotional balance, and self-worth — the
         foundation everything else stands on.</p>
       </div>
-      <div class="pillar-card prosperity">
-        <div class="pillar-num">02 · Prosperity</div>
+      <div class="pillar-card light">
+        <div class="pillar-num">02 · Light</div>
         <h3>Entrepreneurship — The Courage to Build</h3>
         <p>Fear of failure keeps more people stuck than failure itself. I share what I learned the hard way —
         through real failure and real restart — to help you take your first brave step, without needing to have
         it all figured out.</p>
       </div>
-      <div class="pillar-card love">
-        <div class="pillar-num">03 · Love</div>
+      <div class="pillar-card power">
+        <div class="pillar-num">03 · Power</div>
         <h3>Leadership — The Path Forward</h3>
         <p>Leadership isn't a title, it's a muscle you build. From communication to confidence to decision-making,
         I help you lead yourself first — so you're ready to lead others.</p>
@@ -306,11 +384,62 @@
 <section class="testimonials">
   <div class="wrap">
     <div class="eyebrow">What People Say</div>
-    <h2>Stories, Coming Soon</h2>
-    <div class="testimonial-placeholder">
-      <div class="quote-mark">&ldquo;</div>
-      <p>This space is reserved for the people whose lives this journey touches — starting with you.
-      Join a session, and your story could be the first one here.</p>
+    <h2>Stories From the Morning Blessing &amp; Meditation Session</h2>
+    <div class="testimonial-carousel-wrap">
+    <div class="testimonial-carousel" id="testimonialCarousel">
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="quote">I just wanted to thank you from my heart. During my pregnancy, I've been going through so many emotions, worries, and overthinking — there were days I felt completely lost and didn't know how to calm my mind. Then I met you. You introduced me to a completely different way of looking at life — how to let go of negative energy, how to invite positivity, and how important it is to keep my mind peaceful, not just for myself, but for my baby too. Those 30-minute morning sessions from 7:00 to 7:30 have become the most beautiful part of my day. During that time I feel like I stop being just "me" — I feel deeply connected with something divine, like my baby and I become one with a peaceful, powerful, positive energy. I can't fully explain it in words, but it's a feeling that stays with me throughout the day. I've genuinely started noticing positive changes — calmer, lighter, and much more hopeful than before. Thank you, Bipin. No matter how many times I say it, it will never be enough. God bless you always, and may you continue helping people the way you've helped me. 🤍</p>
+        <div class="testimonial-person">
+          <div class="t-avatar">JY</div>
+          <div class="t-name">Jyoti</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="quote">सुबह ब्लेसिंग और मैडिटेशन सेशन जॉइन करने के बाद से दिन मेरा काफ़ी अच्छा था। हाल फिलहाल कुछ दिनों से मैं बहुत ही परेशान रही हूँ लेकिन कल का दिन कब निकल गया, पता नहीं चला। Thank you for this initiative Bipin. Also blessing, earth, people and family is nice idea because we rarely move beyond ourselves. Thanks again.</p>
+        <div class="testimonial-person">
+          <div class="t-avatar">CH</div>
+          <div class="t-name">Cheshta</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="quote">सुबह जल्दी जग के बच्चों के स्कूल भेजने से लेकर शाम होते होते मैं बहुत थक जाती थी। कुछ भी करने का मन नहीं करता था। तुम्हारे सुबह वाले ब्लेसिंग और मैडिटेशन सेशन में आने के बाद लगता है कि कुछ नई ऊर्जा आती है, थकान बिल्कुल समझ आता और गुस्सा पर भी कंट्रोल करने लगी हूँ। बहुत धन्यवाद भाई।</p>
+        <div class="testimonial-person">
+          <div class="t-avatar">SO</div>
+          <div class="t-name">Soni</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="quote">पिछले काफ़ी समय से मैं रात को लेट सोता था नींद ही नहीं आती थी और दिन में शरीर भारी लगता था। मुझे भरोसा नहीं था कि मैं सुबह 7 बजे जग कर ब्लेसिंग और मैडिटेशन सेशन में आ पाऊँगा। जब पहली बार जुड़ा उसके बाद से तो मुझे नया उत्साह मिल गया है। मैं नियमित जग जाता हूँ, सेशन जॉइन करता हूँ और योग भी करने लगा हूँ। नींद समय से आ जाती है। ये मेरे लिए काफ़ी लाभदायक रहा है।</p>
+        <div class="testimonial-person">
+          <div class="t-avatar">AN</div>
+          <div class="t-name">Anshuman</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="quote">Thank you very much for that beautiful session. The Morning Blessing and Meditation session has really helped — I could connect with white lights, and felt the energy. From the last 3 days I am feeling lighter and brighter — itne hectic schedule ke bare mai sochkar hi sar mai dard ho jata tha, but aajkal after meditation din khushi khushi spend ho jata hai... maybe aane wale dino mai aur ache pariṇaam dekhne ko milenge 🙏🏻 Bahut bahut shukriya ✨</p>
+        <div class="testimonial-person">
+          <div class="t-avatar">RU</div>
+          <div class="t-name">Ruhi</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="quote">I've always known about meditation and used to practice it regularly, but the Blessings concept was completely new to me. It brings such immense positive energy and a wonderful feeling of happiness — it feels like everything in life will become smoother, and I feel a deep surge of energy just from practicing it. Thank you so much, Bipin Ji, for such a wonderful experience. I look forward to continuing the sessions.</p>
+        <div class="testimonial-person">
+          <div class="t-avatar">AD</div>
+          <div class="t-name">Anand</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="tPrev" aria-label="Previous story">&larr;</button>
+      <button class="carousel-btn" id="tNext" aria-label="Next story">&rarr;</button>
     </div>
   </div>
 </section>
@@ -335,5 +464,19 @@
   &copy; 2026 Bipin Bihari Dubey · Guiding youth through spirituality, entrepreneurship &amp; leadership.
 </footer>
 
+<script>
+(function(){
+  var track=document.getElementById('testimonialCarousel');
+  var prev=document.getElementById('tPrev');
+  var next=document.getElementById('tNext');
+  if(!track||!prev||!next)return;
+  function step(){
+    var card=track.querySelector('.testimonial-card');
+    return card ? card.getBoundingClientRect().width+20 : 300;
+  }
+  prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+  next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+})();
+</script>
 </body>
 </html>
